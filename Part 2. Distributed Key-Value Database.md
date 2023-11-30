@@ -1,4 +1,11 @@
 # Part 2. Distributed Key-Value Database
+More details can be found in the 
+[Sync consensus algorithm](https://github.com/ymz-ncnk/sync-consensus-algorithm), 
+here are only a few additions.
+
+This is not the final version of the document, work on it is still ongoing.
+
+## Local Log
 In a distributied system, we can store the log on each node in a local key-value
 database (sequential number of the log element will be the key). This allows us 
 to achieve:
@@ -11,7 +18,7 @@ to achieve:
    write data in only one phase.
 
 ## Consistency Model
-[Sync](https://github.com/ymz-ncnk/sync-consensus-algorithm) algorithm states 
+[Sync algorithm](https://github.com/ymz-ncnk/sync-consensus-algorithm) states 
 that some transactions can be canceled when a new epoch is entered. For us, this 
 means that the data read by the client from some node may disappear in the 
 future. Actually, it won't be so bad if it will be warned about this.
