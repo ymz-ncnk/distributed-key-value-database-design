@@ -16,3 +16,6 @@ properties:
 - Random access log - we have quick random access to log items.
 - Nodes are synchronized within a finite period of time even when the system
   handles user requests.
+- Hash mode - each node applies a hash function to the data when writing, and 
+  then combines all the resulting hashes into one. This mode allows us to 
+  compare the contents of nodes.
