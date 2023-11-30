@@ -11,10 +11,10 @@ to achieve:
    write data in only one phase.
 
 ## Consistency Model
-Sync algorithm states that some transactions can be canceled when a 
-new epoch is entered. For us, this means that the data read by the client from 
-some node may disappear in the future. Actually, it won't be so bad if it will 
-be warned about this.
+[Sync](https://github.com/ymz-ncnk/sync-consensus-algorithm) algorithm states 
+that some transactions can be canceled when a new epoch is entered. For us, this 
+means that the data read by the client from some node may disappear in the 
+future. Actually, it won't be so bad if it will be warned about this.
 
 For example, if data is currently being written to the distributed system, the 
 client may receive it from one of the nodes marked as "old version" or as "new 
