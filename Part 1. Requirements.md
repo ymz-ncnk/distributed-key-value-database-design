@@ -2,7 +2,7 @@
 We want to design a distributed key-value database with the following 
 properties:
 - Consensus is reached using the Sync algorithm.
-- Write requests are processed by the leader node.
+- Write requests are processed by the leader node and executed in one phase.
 - Each read request is processed by one follower node.
 - Along with the data, the follower can return one of the labels: "old version" 
   or "new version", which indicate that the data is currently changing.
