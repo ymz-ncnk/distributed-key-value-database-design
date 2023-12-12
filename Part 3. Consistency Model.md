@@ -2,18 +2,19 @@
 [Sync algorithm](https://github.com/ymz-ncnk/sync-consensus-algorithm) states 
 that some transactions can be canceled when a new epoch is entered. For us, this 
 means that the data read by the client from some node may disappear in the 
-future. Actually, it won't be so bad if it will be warned about this.
+future. But this is not as bad as it seems, because we can warn the client about 
+it.
 
 For example, if data is currently being written to the distributed system, the 
 client may receive it from one of the nodes marked as "old version" or as "new 
-version". Both of these lables indicate that the writing is in progress and
+version". Both of these labels indicate that the writing is in progress and
 that it can fail.
 
 Thanks to this approach a read request can be handled by any node from the 
 cluster:
 1. First, the client sends a request to the leader node, which knows the current 
    state of all data.
-2. Than the leader adds metadata to this request and redirects it to one of its 
+2. Then the leader adds metadata to this request and redirects it to one of its 
    followers, who, in turn, will return the necessary data to the client with 
    the appropriate label.
 

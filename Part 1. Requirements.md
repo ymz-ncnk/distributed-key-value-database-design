@@ -5,18 +5,18 @@ properties:
 - **Write requests are processed by the leader node and executed in one phase**.
 - **Each read request is processed by one follower node**.
 - Along with the data, the follower can return one of the labels: "old version" 
-  or "new version", which indicate that the data is currently changing.
-- Update requests are not supported. Instead read/modify/write sequence should 
-  be used.
+  or "new version", which indicates that the data is currently changing.
+- Update requests are not supported. Instead, the read/modify/write sequence 
+  should be used.
 - Concurrency control - MVCC.
 - Information about writes is stored in a distributed log (each node keeps its 
-  own log), which is used for synchronization.
+  log), which is used for synchronization.
 - Tiny log - log items contain only data identifiers, the data itself is stored 
   separately.
 - Random access log - we have quick random access to log items.
-- Nodes are synchronized within a finite period of time even when the system
-  handles user requests.
+- Nodes are synchronized within a finite period even when the system handles 
+  user requests.
 - Hash mode - each node applies a hash function to the data when writing, and
-  than combines the resulting hash with the previous one. As a result, we will 
+  then combines the resulting hash with the previous one. As a result, we will 
   have one hash on each node, which will help us compare their contents.
   
